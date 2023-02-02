@@ -1,13 +1,14 @@
 import ChevronRightIcon from "./ChevronRight";
 
-const ChevronButton = (props: {
+const CarouselChevronButton = (props: {
   onClick: () => void;
   disabled: boolean;
+  direction: "right" | "left";
   ariaLabel: string;
 }) => (
   <button
-    className={`w-6 disabled:opacity-50 enabled:transition ${
-      props.ariaLabel === "previous page"
+    className={`md:w-6 w-4 disabled:opacity-50 enabled:transition ${
+      props.direction === "left"
         ? "rotate-180 enabled:hover:-translate-x-1"
         : "enabled:hover:translate-x-1"
     }`}
@@ -19,4 +20,4 @@ const ChevronButton = (props: {
   </button>
 );
 
-export default ChevronButton;
+export default CarouselChevronButton;
