@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className={`${isDarkMode && "dark"}`}>
-      <div className="bg-slate-100 md:h-full h-screen h-min-screen dark:bg-gray-800 dark:text-stone-100">
+      <div className="bg-slate-100 h-full min-h-screen dark:bg-gray-800 dark:text-stone-100">
         <header className="flex justify-end pt-10 md:pr-20 md:pb-1 pr-4 pb-4">
           <DarkModeToggle
             isDarkMode={isDarkMode}
