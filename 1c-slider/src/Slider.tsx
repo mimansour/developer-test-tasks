@@ -17,20 +17,26 @@ const Slider = ({
   };
 
   return (
-    <input
-      className={styles.slider}
-      type="range"
-      min={min}
-      max={max}
-      value={value}
-      aria-valuenow={value}
-      onChange={(e) => setValue(e.target.valueAsNumber)}
-      onPointerUp={() => onRangeChange(value)}
-      style={getSliderBackgroundSize(value)}
-      aria-valuemin={min}
-      aria-valuemax={max}
-      aria-label="slider"
-    />
+    <div>
+      <label htmlFor="slider" className={styles.sliderLabel}>
+        Slider
+      </label>
+      <input
+        className={styles.slider}
+        id="slider"
+        type="range"
+        min={min}
+        max={max}
+        value={value}
+        aria-valuenow={value}
+        onChange={(e) => setValue(e.target.valueAsNumber)}
+        onPointerUp={() => onRangeChange(value)}
+        style={getSliderBackgroundSize(value)}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-label="slider"
+      />
+    </div>
   );
 };
 
