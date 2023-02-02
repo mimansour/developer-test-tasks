@@ -11,7 +11,6 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      <h1>Slider</h1>
       <Slider onRangeChange={onRangeChange} />
       <p>
         Slider result: <span className={styles.resultValue}>{resultValue}</span>

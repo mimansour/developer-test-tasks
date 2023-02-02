@@ -1,12 +1,6 @@
 .app {
   text-align: center;
   margin: 200px;
-  row-gap: 0.5rem;
-}
-
-h1 {
-  text-transform: uppercase;
-  font-weight: 700;
 }
 
 .resultValue {
