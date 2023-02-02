@@ -1,0 +1,38 @@
+input {
+  appearance: none;
+  margin: 20px;
+  width: 200px;
+  height: 20px;
+  position: relative;
+  background: gainsboro;
+  background-image: linear-gradient(#0284c7, #0284c7);
+  border-radius: 20px;
+  background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  cursor: pointer;
+  background-color: #0c4a6e;
+  border-radius: 25%;
+  height: 25px;
+  width: 20px;
+}
+
+input[type="range"]::before,
+input[type="range"]::after {
+  position: absolute;
+  display: inline-block;
+}
+
+input[type="range"]::before {
+  content: attr(min);
+  left: 0;
+  transform: translateX(calc(-100% - 5px));
+}
+
+input[type="range"]::after {
+  content: attr(max);
+  right: 0;
+  transform: translateX(calc(100% + 5px));
+}
