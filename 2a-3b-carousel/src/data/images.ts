@@ -1,4 +1,3 @@
-import { useState } from "react";
 import NatureImage1 from "../assets/images/nature1.jpeg";
 import NatureImage2 from "../assets/images/nature2.jpeg";
 import NatureImage3 from "../assets/images/nature3.jpeg";
@@ -14,7 +13,6 @@ import AnimalImage2 from "../assets/images/animal2.jpeg";
 import AnimalImage3 from "../assets/images/animal3.jpeg";
 import AnimalImage4 from "../assets/images/animal4.jpeg";
 import AnimalImage5 from "../assets/images/animal5.jpeg";
-import ImageCarousel from "./ImageCarousel";
 
 export type ImageGroup = {
   name: string;
@@ -25,12 +23,12 @@ export type ImageGroup = {
   }[];
 };
 
-const imageList = [
+export const imageGroups: ImageGroup[] = [
   {
     name: "Nature",
     id: 1,
     images: [
-      { img: NatureImage1, altText: "green gras field during sunset" },
+      { img: NatureImage1, altText: "green grass field during sunset" },
       { img: NatureImage2, altText: "waves splashing on sand" },
       { img: NatureImage3, altText: "green leaf tree under blue sky" },
       {
@@ -50,7 +48,7 @@ const imageList = [
       { img: SeaImage4, altText: "swarm of jellyfish" },
       {
         img: SeaImage5,
-        altText: "white starfish on san underwater at daytime",
+        altText: "white starfish on sand underwater at daytime",
       },
     ],
   },
@@ -70,43 +68,8 @@ const imageList = [
       },
       {
         img: AnimalImage5,
-        altText: "a white fox sitting on snow at daytime",
+        altText: "a white fox sitting in snow at daytime",
       },
     ],
   },
 ];
-
-const ImageContainer = () => {
-  const [selectedImageGroup, setSelectedImageGroup] = useState<ImageGroup>(
-    imageList[0]
-  );
-
-  const getButtonStyle = (title: string) => {
-    return `p-1 uppercase text-gray-500 hover:text-gray-900 dark:hover:text-stone-100 hover:underline underline-offset-8 decoration-amber-500 ${
-      selectedImageGroup.name === title
-        ? "text-gray-900 dark:text-stone-100 underline"
-        : "text-gray-500 dark:text-stone-100"
-    }`;
-  };
-
-  return (
-    <div className="text-center flex flex-col items-center">
-      <p className="font-light">Select an image category from below.</p>
-      <ul className="flex gap-x-4 font-semibold text-xl pt-4 pb-10">
-        {imageList.map((group) => (
-          <li key={group.id}>
-            <button
-              className={getButtonStyle(group.name)}
-              onClick={() => setSelectedImageGroup(group)}
-            >
-              {group.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <ImageCarousel imgGroup={selectedImageGroup} />
-    </div>
-  );
-};
-
-export default ImageContainer;
