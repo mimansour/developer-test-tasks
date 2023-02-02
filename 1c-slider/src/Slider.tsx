@@ -1,10 +1,14 @@
 import { useState } from "react";
-import "./Slider.css";
+import styles from "./Slider.module.css";
 
 const Slider = ({
-  handleRangeChange,
+  onRangeChange,
+  min = 0,
+  max = 100,
 }: {
-  handleRangeChange: (value: number) => void;
+  onRangeChange: (value: number) => void;
+  min?: number;
+  max?: number;
 }) => {
   const [value, setValue] = useState(0);
 
@@ -14,17 +18,18 @@ const Slider = ({
 
   return (
     <input
+      className={styles.slider}
       type="range"
-      id="slider"
-      min={0}
-      max={100}
+      min={min}
+      max={max}
       value={value}
       aria-valuenow={value}
       onChange={(e) => setValue(e.target.valueAsNumber)}
-      onPointerUp={() => handleRangeChange(value)}
+      onPointerUp={() => onRangeChange(value)}
       style={getSliderBackgroundSize(value)}
-      aria-valuemin={0}
-      aria-valuemax={100}
+      aria-valuemin={min}
+      aria-valuemax={max}
+      aria-label="slider"
     />
   );
 };
